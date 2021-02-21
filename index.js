@@ -1,3 +1,4 @@
+const fetch = require("node-fetch");
 //Basic async/await API call that uses a try/catch block and console.errors any errors received.
 //Requires endpoint URL, API method (GET, POST, PUT, etc), and a modifier to call the API from different endpoints of the URL.
 //Method and modifier default to "GET" and "" (respectively) if unspecified.
