@@ -11,11 +11,8 @@ To install:
 To use:
 
 ```javascript
-import * as randomModule from "@timetoady/randommodule";
-```
-or
-```javascript
 const randomModule = require('@timetoady/randommodule');
+randomModule.tryCatch(URL, method, headers, modifier) //example of use of one of the methods
 ```
 
 ## Methods
