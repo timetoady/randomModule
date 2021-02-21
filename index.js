@@ -2,7 +2,7 @@
 //Requires endpoint URL, API method (GET, POST, PUT, etc), and a modifier to call the API from different endpoints of the URL.
 //Method and modifier default to "GET" and "" (respectively) if unspecified.
 //Returns data as JSON.
-export async function tryCatch(
+async function tryCatch(
   URL,
   method = "GET",
   headers = {},
@@ -21,7 +21,7 @@ export async function tryCatch(
 }
 
 //Shifts vowels for the Ay-pels and be-ney-neys fun.
-export const vowelShifter = (str, vowel) => {
+const vowelShifter = (str, vowel) => {
 
   function isVowel(x) {
     var result;
@@ -55,7 +55,7 @@ export const vowelShifter = (str, vowel) => {
 
 
 //Translates your string in to l33t. 
-export const l33tTranslator = (str) => {
+const l33tTranslator = (str) => {
   if (typeof str !== "string") return "Please provide a string, d00d."
   let theL33t = str
     .toUpperCase()
@@ -113,7 +113,7 @@ export const l33tTranslator = (str) => {
 
 
 //returns how many days until Christmas
-export const tilChristmas = () => {
+const tilChristmas = () => {
   let thePresentTime = new Date();
   let theYear = thePresentTime.getFullYear();
   let christmas = new Date(`December 25, ${theYear} 00:00:00`);
@@ -140,7 +140,7 @@ export const tilChristmas = () => {
   return fullCountdown;
 };
 
-export const searchAnime = (searchTerm) => {
+const searchAnime = (searchTerm) => {
   const animeEndpoint = "https://api.jikan.moe/v3/search/anime/";
   let query = `?q=${searchTerm}&limit=5`;
   let theHeader = {
@@ -149,3 +149,11 @@ export const searchAnime = (searchTerm) => {
   const searchedAnime = tryCatch(animeEndpoint, "GET", theHeader, query);
   return searchedAnime;
 };
+
+module.exports = {
+  tryCatch,
+  vowelShifter,
+  l33tTranslator,
+  tilChristmas,
+  searchAnime,
+}
