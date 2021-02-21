@@ -3,18 +3,31 @@
 #### This module is a random group of methods just to get my feet wet in making my own node modules. There will be some useful ones (like a easy try/catch fetch for REST APIs) and some other random stuff. 
 
 ## Example Usage
+
+To install:
+
 `npm install @timetoady/randommodule`
-`import * as randomModule from "@timetoady/randommodule"`
 
+To use:
 
-## tryCatch method
+```javascript
+import * as randomModule from "@timetoady/randommodule";
+```
+or
+```javascript
+import { l33tTranslator } from "@timetoady/randommodule";
+```
+
+## Methods
+
+### tryCatch method
 
 `tryCatch(URL, method, headers, modifier)`
 
-### Usage:
+#### Usage:
 A basic async/await API call that uses a try/catch block and console.errors any errors received. Requires endpoint URL. You can specify headers, an API method (GET, POST, PUT, etc.), and also optionally modifier to call the API from different endpoints of the URL. Method and modifier default to `GET` and `""` (respectively) if unspecified, and headers defaults to `{}`. Returns data as JSON.
 
-### Example:
+#### Example:
 ```javascript
     //In an async function.
     const jikanCoboywBebopAPI = "https://api.jikan.moe/v3/anime/1/episodes"
@@ -22,7 +35,7 @@ A basic async/await API call that uses a try/catch block and console.errors any 
     console.log(result)
 ```
 
-### Result should be:
+#### Result should be:
 ```json
 {
     "request_hash": "request:anime:c8a5be55579a0147b5c455245461fe69a7347e1b",
@@ -57,69 +70,69 @@ A basic async/await API call that uses a try/catch block and console.errors any 
 ```
 (Response truncated for length.)
 
-## vowelShifter method
+### vowelShifter method
 
 `vowelShifter(string, vowel)`
 
-### Usage:
+#### Usage:
 Ever sung that song? "I like to oot, oot, oot, opplos and bononos?" Well, this does that for you. Just provide your string and the vowel you want it to shift to, and you can sing anything vowel-shifted. It changes your string to one, and will return an error if you don't give a vowel, ('a', 'e', 'i', 'o', or 'u' only, sorry 'y' and 'w' fans.) Returns data as a string.
 
-### Example:
+#### Example:
 ```javascript
 vowelShifter("I like to brush my teeth twice a day.", "a")
 ```
 
-### Result should be: 
+#### Result should be: 
 I laka ta brash my taath twaca a day.
 
 
-## l33tTranslator method
+### l33tTranslator method
 
 `l33tTranslator(string)`
 
-### Usage:
+#### Usage:
 Provide a string, returns a new, translated string, or a request for a string if one is not provided. Translates your run-of-the-mill, everyday, boring sentences into l33t, complete with word substitution and an over-abundance of caps and exclamation points. The number that still enjoy this internet gamer language fad is debatable, but don't let that stop you from spamming your Discord or Twitch friends with, "1 @M T3H WINNAR!!! 1 PWN @LL J00 F00LZ!!!" 
 
-### Example:
+#### Example:
 ```javascript
 l33tTranslator("Hello gentleman. I hope you have enjoyed your games, because now you are about to be owned by an elite power gamer.")
 ```
 
-### Result should be: 
+#### Result should be: 
 "H3LL0 G3NTL3M@N. 1 H0P3 J00 H@V3 3NJ0¥'D J00R G@M3S, B3C@US3 N0W J00 @R3 @B0UT T0 B3 PWN'D B¥ @N L33T POWWAH G@M3R."
 
-## tilChristmas method
+### tilChristmas method
 
 `tilChristmas().< timeMeasurement >`
 
-### Usage:
+#### Usage:
 Ever wonder how long until next Christmas? Want to always know on demand? Just run this method, and you can know to the second. Returns an object which gives you the time until Christmas in `.days`, `.hours`, `.minutes`, or `.seconds`, or a string with a combination of them broken down.
 
-### Example:
+#### Example:
 ```javascript
 tilChristmas().timeUntilChristmas
 tilChristmas().hours
 ```
 
-### Result should be:
+#### Result should be:
 ```javascript
 "As of now, it is 307 days, 4 hours, 14 minutes, and 18.94 seconds until Christmas."
 7372.230713611111
 ```
 
-## searchAnime method
+### searchAnime method
 
 `searchAnime(searchTerm)`
 
-### Usage:
+#### Usage:
 Just a quick method that searches the MyAnimeList database for your favorite anime. Searches by title, episode name, genre, and more, especially if you add additional tags in your search term parameters (see https://jikan.docs.apiary.io/ for more details). Watch out for CORS issues depending on where you use it and your header settings. Results are the first five matches as JSON.
 
-### Example:
+#### Example:
 ```javascript
 searchAnime("Slime")
 ```
 
-### Result should be:
+#### Result should be:
 
 ```javascript
 {
