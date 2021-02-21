@@ -2,6 +2,10 @@
 
 #### This module is a random group of methods just to get my feet wet in making my own node modules. There will be some useful ones (like a easy try/catch fetch for REST APIs) and some other random stuff. 
 
+## Example Usage
+`npm install @timetoady/randommodule`
+`import * as randomModule from "@timetoady/randommodule"`
+
 
 ## tryCatch method
 
