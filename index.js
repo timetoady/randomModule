@@ -21,16 +21,16 @@ export async function tryCatch(
 }
 
 //Shifts vowels for the Ay-pels and be-ney-neys fun.
-const vowelShifter = (str, vowel) => {
+export const vowelShifter = (str, vowel) => {
   function isVowel(x) {
     var result;
     result = x == "A" || x == "E" || x == "I" || x == "O" || x == "U";
     return result;
   }
-   if(isVowel(vowel.toUpperCase()) === false) {
-    console.log("Please provide a vowel.")
-    return "Please provide a vowel."
-   }
+  if (isVowel(vowel.toUpperCase()) === false) {
+    console.log("Please provide a vowel.");
+    return "Please provide a vowel.";
+  }
   let theStrings = str.split("");
   console.log(theStrings);
   let newString = "";
@@ -52,9 +52,9 @@ const vowelShifter = (str, vowel) => {
   return newString;
 };
 
-vowelShifter("I like to eat apples and bananas", "1");
-
-const l33tTranslator = (str) => {
+//Translates your string in to l33t. 
+export const l33tTranslator = (str) => {
+  if (typeof str !== String) return "Please provide a string, d00d."
   let theL33t = str
     .toUpperCase()
     .replaceAll("DUDE", "D00D")
@@ -104,9 +104,45 @@ const l33tTranslator = (str) => {
     .replaceAll("L1K3", "LIEK")
     .replaceAll("@ND", "ND")
     .replaceAll("B¥3", "BAI")
-    .replaceAll("M3 T00", "M2");
-
-  console.log(theL33t);
+    .replaceAll("M3 T00", "M2")
+    .replaceAll("W0RST", "M2");
+  return theL33t;
 };
 
-l33tTranslator("DUDE, THAT SUCKS.");
+//returns how many days until Christmas
+export const tilChristmas = () => {
+  let thePresentTime = new Date();
+  let theYear = thePresentTime.getFullYear();
+  let christmas = new Date(`December 25, ${theYear} 00:00:00`);
+  let timeTilChristmas = christmas.getTime() - thePresentTime.getTime();
+  let daysTilChristmas = timeTilChristmas / (1000 * 3600 * 24);
+  let hoursTilChristmas = timeTilChristmas / (1000 * 3600);
+  let minutesTilChristmas = timeTilChristmas / (1000 * 60);
+  let secondsTilChristmas = timeTilChristmas / 1000;
+  let theDays = Math.trunc(daysTilChristmas);
+  let theHoursInDays = (daysTilChristmas - theDays) * 24;
+  let theHours = Math.trunc(theHoursInDays);
+  let theMinutesinHours = (theHoursInDays - theHours) * 60;
+  let theMinutes = Math.trunc(theMinutesinHours);
+  let theSecondsInMinutes = (theMinutesinHours - theMinutes) * 60;
+  let theSeconds = theSecondsInMinutes.toFixed(2);
+
+  let fullCountdown = {
+    days: daysTilChristmas,
+    hours: hoursTilChristmas,
+    minutes: minutesTilChristmas,
+    seconds: secondsTilChristmas,
+    timeUntilChristmas: `As of now, it is ${theDays} days, ${theHours} hours, ${theMinutes} minutes, and ${theSeconds} seconds until Christmas.`,
+  };
+  return fullCountdown;
+};
+
+const searchAnime = (searchTerm) => {
+  const animeEndpoint = "https://api.jikan.moe/v3/search/anime/";
+  let query = `?q=${searchTerm}&limit=5`;
+  let theHeader = {
+    "Access-Control-Allow-Origin": "*"
+  }
+  const searchedAnime = tryCatch(animeEndpoint, "GET", theHeader, query);
+  return searchedAnime;
+};
