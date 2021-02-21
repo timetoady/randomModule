@@ -22,6 +22,7 @@ export async function tryCatch(
 
 //Shifts vowels for the Ay-pels and be-ney-neys fun.
 export const vowelShifter = (str, vowel) => {
+
   function isVowel(x) {
     var result;
     result = x == "A" || x == "E" || x == "I" || x == "O" || x == "U";
@@ -31,7 +32,7 @@ export const vowelShifter = (str, vowel) => {
     console.log("Please provide a vowel.");
     return "Please provide a vowel.";
   }
-  let theStrings = str.split("");
+  let theStrings = str.toString().split("");
   console.log(theStrings);
   let newString = "";
   theStrings.forEach((string) => {
@@ -52,9 +53,10 @@ export const vowelShifter = (str, vowel) => {
   return newString;
 };
 
+
 //Translates your string in to l33t. 
 export const l33tTranslator = (str) => {
-  if (typeof str !== String) return "Please provide a string, d00d."
+  if (typeof str !== "string") return "Please provide a string, d00d."
   let theL33t = str
     .toUpperCase()
     .replaceAll("DUDE", "D00D")
@@ -105,9 +107,10 @@ export const l33tTranslator = (str) => {
     .replaceAll("@ND", "ND")
     .replaceAll("B¥3", "BAI")
     .replaceAll("M3 T00", "M2")
-    .replaceAll("W0RST", "M2");
+    .replaceAll("W0RST", "WURST");
   return theL33t;
 };
+
 
 //returns how many days until Christmas
 export const tilChristmas = () => {
@@ -137,7 +140,7 @@ export const tilChristmas = () => {
   return fullCountdown;
 };
 
-const searchAnime = (searchTerm) => {
+export const searchAnime = (searchTerm) => {
   const animeEndpoint = "https://api.jikan.moe/v3/search/anime/";
   let query = `?q=${searchTerm}&limit=5`;
   let theHeader = {
