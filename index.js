@@ -109,7 +109,6 @@ const l33tTranslator = (theString) => {
   return theL33t;
 };
 
-console.log(l33tTranslator("Wow, your are the worst. I need to no way and"))
 //returns how many days until Christmas
 const tilChristmas = () => {
   let thePresentTime = new Date();
