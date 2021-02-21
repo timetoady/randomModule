@@ -148,10 +148,10 @@ const searchAnime = (searchTerm) => {
   return searchedAnime;
 };
 
-// module.exports = {
-//   tryCatch,
-//   vowelShifter,
-//   l33tTranslator,
-//   tilChristmas,
-//   searchAnime,
-// }
+module.exports = {
+  tryCatch,
+  vowelShifter,
+  l33tTranslator,
+  tilChristmas,
+  searchAnime,
+}
