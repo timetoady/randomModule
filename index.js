@@ -29,14 +29,11 @@ const vowelShifter = (str, vowel) => {
     return result;
   }
   if (isVowel(vowel.toUpperCase()) === false) {
-    console.log("Please provide a vowel.");
     return "Please provide a vowel.";
   }
   let theStrings = str.toString().split("");
-  console.log(theStrings);
-  let newString = "";
+   let newString = "";
   theStrings.forEach((string) => {
-    console.log(string);
     if (
       string === "a" ||
       string === "e" ||
@@ -49,16 +46,14 @@ const vowelShifter = (str, vowel) => {
       newString += string;
     }
   });
-  console.log(newString);
   return newString;
 };
 
 
 //Translates your string in to l33t. 
-const l33tTranslator = (str) => {
-  if (typeof str !== "string") return "Please provide a string, d00d."
-  let theL33t = str
-    .toUpperCase()
+const l33tTranslator = (theString) => {
+  if (typeof theString !== "string") return "Please provide a string, d00d."
+  let theL33t = theString.toUpperCase()
     .replaceAll("DUDE", "D00D")
     .replaceAll("PORN", "PRON")
     .replaceAll("GIRL", "GURL")
@@ -111,7 +106,7 @@ const l33tTranslator = (str) => {
   return theL33t;
 };
 
-
+console.log(l33tTranslator("Translate this, please."))
 //returns how many days until Christmas
 const tilChristmas = () => {
   let thePresentTime = new Date();
