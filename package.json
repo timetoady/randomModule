@@ -1,6 +1,6 @@
 {
   "name": "@timetoady/randommodule",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A group of random and fun methods to get my feet wet on writing npm modules.",
   "main": "index.js",
   "scripts": {

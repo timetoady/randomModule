@@ -15,7 +15,7 @@ import * as randomModule from "@timetoady/randommodule";
 ```
 or
 ```javascript
-import { l33tTranslator } from "@timetoady/randommodule";
+const randomModule = require('@timetoady/randommodule');
 ```
 
 ## Methods
