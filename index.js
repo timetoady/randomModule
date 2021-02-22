@@ -142,7 +142,8 @@ const searchAnime = (searchTerm) => {
   const animeEndpoint = "https://api.jikan.moe/v3/search/anime/";
   let query = `?q=${searchTerm}&limit=5`;
   let theHeader = {
-    "Access-Control-Allow-Origin": "*"
+    "Access-Control-Allow-Origin": "*";
+    "Content-Type": "application/json"
   }
   const searchedAnime = tryCatch(animeEndpoint, "GET", theHeader, query);
   return searchedAnime;
